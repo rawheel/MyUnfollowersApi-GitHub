@@ -44,10 +44,18 @@ class comp:
         self.username = username
 
 
-    def read_json(self):
-        read = open("data.txt","r")
-        data = json.load(read)
-        print(data)
+    def save_my_followers(self):
+        read = open("blank.txt","r")
+        try:
+            data = json.load(read)
+            print(data)
+        except:
+            save_followers_object = save_followers(self.username)
+            all_followers = save_followers.get_followers()
+            with open('data.txt', 'w') as outfile:
+                json.dump(info_dict, outfile)
+            print("your followers all loaded")
+
 ob  = comp("wajahatkarim3")
-ob.read_json()
+ob.save_my_followers()
 
