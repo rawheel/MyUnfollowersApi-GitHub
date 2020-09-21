@@ -32,3 +32,4 @@ class Load_followers:
         '''with open('data.txt', 'w') as outfile:
             json.dump(info_dict, outfile)'''
         return info_dict
+
