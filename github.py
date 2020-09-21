@@ -2,14 +2,16 @@ import requests
 from pprint import pprint
 import threading
 import math
+import emoji
 import json
-class save_followers:
+class Load_followers:
     def __init__(self,username):
         self.username = username
 
         info=f"https://api.github.com/users/{self.username}"
-        total_followers = requests.get(info).json()
-        self.length = math.ceil((int(total_followers["followers"]))/100)
+        self.total_followers = requests.get(info).json()
+        self.total = int(self.total_followers["followers"])
+        self.length = math.ceil((int(self.total_followers["followers"]))/100)
         self.followers=[]
     def call_api(self,page):
         per_page = 100 
