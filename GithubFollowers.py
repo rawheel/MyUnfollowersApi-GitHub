@@ -4,42 +4,8 @@ import threading
 import math
 import emoji
 import json
-class Load_followers:
-    def __init__(self,username):
-        self.username = username
-
-        info=f"https://api.github.com/users/{self.username}"
-        self.total_followers = requests.get(info).json()
-        self.total = int(self.total_followers["followers"])
-        self.length = math.ceil((int(self.total_followers["followers"]))/100)
-        self.followers=[]
-    def call_api(self,page):
-        per_page = 100 
-        url = f"https://api.github.com/users/{self.username}/followers?page={page}&per_page={str(per_page)}"
-        user_data = requests.get(url).json()
-        [self.followers.append(user_data[i]["login"]) for i in range(len(user_data))]
-        
-    def get_followers(self):
-        threads=[]
-        for page in range(1,self.length+1):
-            #get_followers(page)
-            t = threading.Thread(target=self.call_api,args=[page])
-            t.start()
-            threads.append(t)
-        for thread in threads:
-            thread.join()
-        info_dict={self.username:self.followers}
-        '''with open('data.txt', 'w') as outfile:
-            json.dump(info_dict, outfile)'''
-        return info_dict
-
-#object_1 = save_followers("wajahatkarim3")
-
-#saved_followers = object_1.save_followers()
-
-#pprint(json.load(read))
-#print(saved_followers)
-#print(len(saved_followers))
+import Load_followers
+from Load_followers import *
 
 class GithubFollowers:
     def __init__(self,username):
@@ -51,7 +17,9 @@ class GithubFollowers:
         return self.prev_data
         #print(self.data)
     def load_recent_followers(self):
+
         load_followers = Load_followers(self.username)
+        print(f"total followers: {str(load_followers.total)}")
         self.recent_data = load_followers.get_followers()
         with open('data.txt', 'w') as outfile:
             json.dump(self.recent_data, outfile)
@@ -62,9 +30,10 @@ class GithubFollowers:
 
 
     def save_data_for_first_time(self):
-        print("loading followers...")
+        #print("loading followers...")
         
         load_followers = Load_followers(self.username)
+        print(f"total followers: {str(load_followers.total)}")
         self.data = load_followers.get_followers()
         #print("Loading Done")
         with open('data.txt', 'w') as outfile:
@@ -72,6 +41,8 @@ class GithubFollowers:
         
 
     def compare_followers(self):
+        print(f'Processing {self.username}',end='')
+        print(emoji.emojize(' :man_technologist:'))
         try:
             read = open("data.txt","r")
             prev_data = json.load(read)
@@ -103,7 +74,7 @@ class GithubFollowers:
                     no=0
                     [print(f'{no+1}) {n}') for no,n in enumerate(newfollowers)]
                 else:
-                    print(emoji.emojize("Help a person,Get a new Followers :smiling_face_with_halo"))
+                    print(emoji.emojize("Help a person,Get a new Follower :smiling_face_with_halo:"))
             else:
                 self.save_data_for_first_time()
                 #print(e)
@@ -117,5 +88,5 @@ class GithubFollowers:
 
 
 
-main_object = GithubFollowers("rawheel")
+main_object = GithubFollowers("wajahatkarim3")
 main_object.compare_followers()

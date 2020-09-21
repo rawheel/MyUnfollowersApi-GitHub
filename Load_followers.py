@@ -11,7 +11,7 @@ class Load_followers:
         info=f"https://api.github.com/users/{self.username}"
         self.total_followers = requests.get(info).json()
         self.total = int(self.total_followers["followers"])
-        self.length = math.ceil((int(self.total_followers["followers"]))/100)
+        self.length = math.ceil(self.total/100)
         self.followers=[]
     def call_api(self,page):
         per_page = 100 
