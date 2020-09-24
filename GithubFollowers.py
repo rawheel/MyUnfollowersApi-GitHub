@@ -8,7 +8,7 @@ import Load_followers
 from Load_followers import *
 from flask import Flask
 from flask_restful import Api, Resource
-
+import jsonify
 app = Flask(__name__)
 api = Api(app)
 
@@ -73,7 +73,7 @@ class GithubFollowers(Resource):
                     
                     data["unfollowers"] = list(unfollowers)
                 else:
-                	return {"error":"Congrats,No one unfollowed you :grinning_face_with_big_eyes:"}
+                	pass
                     #print(emoji.emojize("Congrats,No one unfollowed you :grinning_face_with_big_eyes:"))
                 if newfollowers:
                     #print(emoji.emojize("Following Folk/s recently started following you :smiling_face_with_heart-eyes:"))
@@ -82,10 +82,15 @@ class GithubFollowers(Resource):
                     data["newfollowers"] = list(newfollowers)
 
                 else:
-                    print(emoji.emojize("Help a person,Get a new Follower :smiling_face_with_halo:"))
-                return data
+                	pass
+
+                    #print(emoji.emojize("Help a person,Get a new Follower :smiling_face_with_halo:"))
+                print(data)
+
+                return json.dumps(data)
             else:
                 self.save_data_for_first_time()
+                print("1....")
                 #print(emoji.emojize(":check_mark: Your username & Followers have been added for later use!")) 
                 return {"message": "Your username & Followers have been added for later use!"}               
        
@@ -93,10 +98,12 @@ class GithubFollowers(Resource):
         except Exception as e:
             self.save_data_for_first_time()
             #print(emoji.emojize(":check_mark: Your username & Followers have been added for later use!"))
+            print(e)
+            print("2....")
             return {"message": "Your username & Followers have been added for later use!"}
 
 
-api.add_resource(GithubFollowers,"/GithubFollowers/<string:name>")
+api.add_resource(GithubFollowers,"/GithubFollowers/<string:username>")
 
 if __name__ == "__main__":
 	app.run(debug=True)

@@ -7,6 +7,7 @@ import json
 
 class Load_followers:
     def __init__(self,username):
+        print("load called")
         self.username = username
 
         info=f"https://api.github.com/users/{self.username}"
