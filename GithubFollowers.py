@@ -11,6 +11,7 @@ from flask import jsonify
 app = Flask(__name__)
 api = Api(app)
 
+
 class GithubFollowers(Resource):
     def get(self,username):
         self.username = username
