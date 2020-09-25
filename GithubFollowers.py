@@ -2,20 +2,24 @@ import requests
 from pprint import pprint
 import threading
 import math
-import emoji
 import json
 import Load_followers
 from Load_followers import *
 from flask import Flask
-from flask_restful import Api, Resource
-import jsonify
+from flask_restful import Api, Resource,reqparse,abort
+from flask import jsonify
 app = Flask(__name__)
 api = Api(app)
 
 class GithubFollowers(Resource):
     def get(self,username):
         self.username = username
-        self.compare_followers()
+        try:
+        	coming = self.compare_followers()
+        	print(coming)
+        	return jsonify(coming)
+        except:
+        	abort(400,message="Max Retiries exceeded with URL, take a break man...")
 
     def load_prev_followers(self):
         read = open("data.txt","r")
@@ -57,8 +61,8 @@ class GithubFollowers(Resource):
                 prev_set = set(prev_followers[self.username])
                 recent_set = set(recent_followers[self.username])
 
-                unfollowers = prev_set-recent_set
-                newfollowers = recent_set - prev_set
+                newfollowers = prev_set-recent_set
+                unfollowers = recent_set - prev_set
 
                 data  ={}
                 data["unfollowers"] = "Congrats,No one unfollowed you"
@@ -72,38 +76,37 @@ class GithubFollowers(Resource):
                     #print()
                     
                     data["unfollowers"] = list(unfollowers)
-                else:
-                	pass
+
                     #print(emoji.emojize("Congrats,No one unfollowed you :grinning_face_with_big_eyes:"))
                 if newfollowers:
                     #print(emoji.emojize("Following Folk/s recently started following you :smiling_face_with_heart-eyes:"))
-                    no=0
+                    #no=0
                     #[print(f'{no+1}) {n}') for no,n in enumerate(newfollowers)]
                     data["newfollowers"] = list(newfollowers)
 
-                else:
-                	pass
 
                     #print(emoji.emojize("Help a person,Get a new Follower :smiling_face_with_halo:"))
                 print(data)
 
-                return json.dumps(data)
+                return data
+
+                #return json.dumps(data)
             else:
                 self.save_data_for_first_time()
-                print("1....")
+
                 #print(emoji.emojize(":check_mark: Your username & Followers have been added for later use!")) 
-                return {"message": "Your username & Followers have been added for later use!"}               
+                return {"message": "Your username & Followers have been added for later use!"}
        
             
         except Exception as e:
             self.save_data_for_first_time()
             #print(emoji.emojize(":check_mark: Your username & Followers have been added for later use!"))
-            print(e)
-            print("2....")
+            #print(e)
+
             return {"message": "Your username & Followers have been added for later use!"}
 
 
-api.add_resource(GithubFollowers,"/GithubFollowers/<string:username>")
+api.add_resource(GithubFollowers,"/<string:username>")
 
 if __name__ == "__main__":
 	app.run(debug=True)
