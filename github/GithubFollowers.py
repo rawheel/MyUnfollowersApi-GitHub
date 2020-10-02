@@ -8,106 +8,108 @@ from Load_followers import *
 from flask import Flask
 from flask_restful import Api, Resource,reqparse,abort
 from flask import jsonify
+from flask import request
 app = Flask(__name__)
-api = Api(app)
+#api = Api(app)
 
 
-class GithubFollowers(Resource):
-    def get(self,username):
-        self.username = username
-        try:
-        	coming = self.compare_followers()
-        	print(coming)
-        	return jsonify(coming)
-        except:
-        	abort(400,message="Max Retiries exceeded with URL, take a break man...")
+#class GithubFollowers(Resource):
+@app.route('/',methods=['GET'])
+def get():
+    username = str(request.args['username'])
+    try:
+        coming = compare_followers(username)
+        print(coming)
+        return jsonify(coming)
+    except:
+        abort(400,message="Max Retiries exceeded with URL, take a break man...")
 
-    def load_prev_followers(self):
+def load_prev_followers():
+    read = open("data.txt","r")
+    prev_data = json.load(read)
+    return prev_data
+    #print(self.data)
+def load_recent_followers(username):
+
+    load_followers = Load_followers(username)
+    print(f"total followers: {str(load_followers.total)}")
+    recent_data = load_followers.get_followers()
+    with open('data.txt', 'w') as outfile:
+        json.dump(recent_data, outfile)
+    return recent_data
+
+
+def save_data_for_first_time():
+
+    load_followers = Load_followers(username)
+    #print(f"total followers: {str(load_followers.total)}")
+    data = load_followers.get_followers()
+    with open('data.txt', 'w') as outfile:
+        json.dump(data, outfile)
+
+
+def compare_followers(username):
+    #print(f'Processing {self.username}',end='')
+    #print(emoji.emojize(' :man_technologist:'))
+    try:
         read = open("data.txt","r")
-        self.prev_data = json.load(read)
-        return self.prev_data
-        #print(self.data)
-    def load_recent_followers(self):
+        prev_data = json.load(read)
+        prev_username = [i for i in prev_data]
 
-        load_followers = Load_followers(self.username)
-        print(f"total followers: {str(load_followers.total)}")
-        self.recent_data = load_followers.get_followers()
-        with open('data.txt', 'w') as outfile:
-            json.dump(self.recent_data, outfile)
-        return self.recent_data
+        if prev_username[0]==username:
+            prev_followers = load_prev_followers()
+            recent_followers = load_recent_followers(username)
 
 
-    def save_data_for_first_time(self):
-        
-        load_followers = Load_followers(self.username)
-        #print(f"total followers: {str(load_followers.total)}")
-        self.data = load_followers.get_followers()
-        with open('data.txt', 'w') as outfile:
-            json.dump(self.data, outfile)
-        
+            prev_set = set(prev_followers[username])
+            recent_set = set(recent_followers[username])
 
-    def compare_followers(self):
-        #print(f'Processing {self.username}',end='')
-        #print(emoji.emojize(' :man_technologist:'))
-        try:
-            read = open("data.txt","r")
-            prev_data = json.load(read)
-            prev_username = [i for i in prev_data]
+            newfollowers = prev_set-recent_set
+            unfollowers = recent_set - prev_set
 
-            if prev_username[0]==self.username:
-                prev_followers = self.load_prev_followers()
-                recent_followers = self.load_recent_followers()
-                
-
-                prev_set = set(prev_followers[self.username])
-                recent_set = set(recent_followers[self.username])
-
-                newfollowers = prev_set-recent_set
-                unfollowers = recent_set - prev_set
-
-                data  ={}
-                data["unfollowers"] = "Congrats,No one unfollowed you"
-                data["newfollowers"] = "Help a person,Get a new Follower"
+            data  ={}
+            data["unfollowers"] = "Congrats,No one unfollowed you"
+            data["newfollowers"] = "Help a person,Get a new Follower"
 
 
-                if unfollowers:
-                    #print(emoji.emojize('Following Folk/s unfollowed you :pensive_face:'))
-                    #no=0
-                    #[print(f'{no+1}) {u}') for no,u in enumerate(unfollowers)]
-                    #print()
-                    
-                    data["unfollowers"] = list(unfollowers)
+            if unfollowers:
+                #print(emoji.emojize('Following Folk/s unfollowed you :pensive_face:'))
+                #no=0
+                #[print(f'{no+1}) {u}') for no,u in enumerate(unfollowers)]
+                #print()
 
-                    #print(emoji.emojize("Congrats,No one unfollowed you :grinning_face_with_big_eyes:"))
-                if newfollowers:
-                    #print(emoji.emojize("Following Folk/s recently started following you :smiling_face_with_heart-eyes:"))
-                    #no=0
-                    #[print(f'{no+1}) {n}') for no,n in enumerate(newfollowers)]
-                    data["newfollowers"] = list(newfollowers)
+                data["unfollowers"] = list(unfollowers)
+
+                #print(emoji.emojize("Congrats,No one unfollowed you :grinning_face_with_big_eyes:"))
+            if newfollowers:
+                #print(emoji.emojize("Following Folk/s recently started following you :smiling_face_with_heart-eyes:"))
+                #no=0
+                #[print(f'{no+1}) {n}') for no,n in enumerate(newfollowers)]
+                data["newfollowers"] = list(newfollowers)
 
 
-                    #print(emoji.emojize("Help a person,Get a new Follower :smiling_face_with_halo:"))
-                print(data)
+                #print(emoji.emojize("Help a person,Get a new Follower :smiling_face_with_halo:"))
+            #print(data)
 
-                return data
+            return data
 
-                #return json.dumps(data)
-            else:
-                self.save_data_for_first_time()
+            #return json.dumps(data)
+        else:
+            save_data_for_first_time()
 
-                #print(emoji.emojize(":check_mark: Your username & Followers have been added for later use!")) 
-                return {"message": "Your username & Followers have been added for later use!"}
-       
-            
-        except Exception as e:
-            self.save_data_for_first_time()
             #print(emoji.emojize(":check_mark: Your username & Followers have been added for later use!"))
-            #print(e)
-
             return {"message": "Your username & Followers have been added for later use!"}
 
 
-api.add_resource(GithubFollowers,"/<string:username>")
+    except Exception as e:
+        save_data_for_first_time()
+        #print(emoji.emojize(":check_mark: Your username & Followers have been added for later use!"))
+        #print(e)
+
+        return {"message": "Your username & Followers have been added for later use!"}
+
+
+#api.add_resource(GithubFollowers,"/<string:username>")
 
 if __name__ == "__main__":
 	app.run(debug=True)
