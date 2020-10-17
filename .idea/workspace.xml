@@ -1,32 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:get_request" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="64b57b02-ccba-46ec-b3d1-307eadda1e4d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/github/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/github/.idea/My_Unfollowers.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/github/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/github/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/github/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/github/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/github/data.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/instagram/InstaFollowers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GithubFollowers.py" beforeDir="false" afterPath="$PROJECT_DIR$/github/GithubFollowers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/github/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Load_followers.py" beforeDir="false" afterPath="$PROJECT_DIR$/github/Load_followers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/github/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/github/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/github/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/github/GithubFollowers.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/github/data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/github/data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/github/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/github/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/github/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="seperate_folders" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="JupyterTrust" id="77449443-8812-44a2-8022-5608f50912a2" />
   <component name="ProjectId" id="1i1E3T4EyYoPXEgBjTXJSAvxetG" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -34,10 +53,32 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/instagram/InstaFollowers.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/flask_test.py" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Flask server.InstaFollowers">
+  <component name="RunManager" selected="Python.GithubFollowers">
+    <configuration name="GithubFollowers" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\Raheel\anaconda3\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/github" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/github/GithubFollowers.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="My_Unfollowers" type="PythonConfigurationType" factoryName="Python">
       <module name="My_Unfollowers" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -71,6 +112,21 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Flask (flask_test.py)" type="Python.FlaskServer" nameIsGenerated="true">
+      <option name="target" value="C:\Users\Raheel\Desktop\My_Unfollowers\flask_test.py" />
+      <option name="targetType" value="PATH" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="C:\Program Files (x86)\Python37-32\pythonw.exe" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="launchJavascriptDebuger" value="false" />
       <method v="2" />
@@ -123,12 +179,15 @@
     <list>
       <item itemvalue="Flask server.GithubFollowers" />
       <item itemvalue="Flask server.InstaFollowers" />
+      <item itemvalue="Flask server.Flask (flask_test.py)" />
       <item itemvalue="Flask server.main" />
       <item itemvalue="Flask server.Flask (GithubFollowers.py)" />
       <item itemvalue="Python.My_Unfollowers" />
+      <item itemvalue="Python.GithubFollowers" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.GithubFollowers" />
         <item itemvalue="Flask server.Flask (GithubFollowers.py)" />
       </list>
     </recent_temporary>
@@ -142,48 +201,78 @@
       <option name="presentableId" value="Default" />
       <updated>1601066503545</updated>
       <workItem from="1601066507199" duration="7505000" />
-      <workItem from="1601078360350" duration="1772000" />
+      <workItem from="1601078360350" duration="1912000" />
+      <workItem from="1601670019882" duration="7717000" />
+      <workItem from="1602156912393" duration="4441000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="get_request" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="2217" y="0" width="1452" height="1112" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601078446655">
+    <state x="2217" y="0" width="1452" height="1112" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601675519919">
       <screen x="1920" y="0" width="2048" height="1112" />
     </state>
     <state x="223" y="1" width="1089" height="823" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/1920.0.2048.1112@0.0.1536.824" timestamp="1601070404512" />
-    <state x="2217" y="0" width="1452" height="1112" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/1920.0.2048.1112@1920.0.2048.1112" timestamp="1601078446655" />
-    <state x="3156" y="309" key="FileChooserDialogImpl" timestamp="1601078443917">
+    <state x="2217" y="0" width="1452" height="1112" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/1920.0.2048.1112@1920.0.2048.1112" timestamp="1601675519919" />
+    <state x="2709" y="358" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1601679101323">
+      <screen x="1920" y="0" width="2048" height="1112" />
+    </state>
+    <state x="2709" y="358" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824/1920.0.2048.1112@1920.0.2048.1112" timestamp="1601679101323" />
+    <state x="3156" y="309" key="FileChooserDialogImpl" timestamp="1601675497186">
       <screen x="1920" y="0" width="2048" height="1112" />
     </state>
     <state x="927" y="229" key="FileChooserDialogImpl/0.0.1536.824/1920.0.2048.1112@0.0.1536.824" timestamp="1601070402595" />
-    <state x="3156" y="309" key="FileChooserDialogImpl/0.0.1536.824/1920.0.2048.1112@1920.0.2048.1112" timestamp="1601078443917" />
-    <state width="2005" height="267" key="GridCell.Tab.0.bottom" timestamp="1601079817760">
-      <screen x="1920" y="0" width="2048" height="1112" />
+    <state x="3156" y="309" key="FileChooserDialogImpl/0.0.1536.824/1920.0.2048.1112@1920.0.2048.1112" timestamp="1601675497186" />
+    <state width="1493" height="234" key="GridCell.Tab.0.bottom" timestamp="1602165132678">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="239" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.2048.1112@0.0.1536.824" timestamp="1601070871579" />
-    <state width="2005" height="267" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.2048.1112@1920.0.2048.1112" timestamp="1601079817760" />
-    <state width="1493" height="2" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1601072614968" />
-    <state width="2005" height="267" key="GridCell.Tab.0.center" timestamp="1601079817760">
-      <screen x="1920" y="0" width="2048" height="1112" />
+    <state width="723" height="267" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.2048.1112@0.0.1536.824" timestamp="1601684364907" />
+    <state width="2005" height="384" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.2048.1112@1920.0.2048.1112" timestamp="1602157572543" />
+    <state width="1493" height="234" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1602165132678" />
+    <state width="1493" height="234" key="GridCell.Tab.0.center" timestamp="1602165132674">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="239" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.2048.1112@0.0.1536.824" timestamp="1601070871578" />
-    <state width="2005" height="267" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.2048.1112@1920.0.2048.1112" timestamp="1601079817760" />
-    <state width="1493" height="2" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1601072614967" />
-    <state width="2005" height="267" key="GridCell.Tab.0.left" timestamp="1601079817760">
-      <screen x="1920" y="0" width="2048" height="1112" />
+    <state width="723" height="267" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.2048.1112@0.0.1536.824" timestamp="1601684364906" />
+    <state width="2005" height="384" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.2048.1112@1920.0.2048.1112" timestamp="1602157572542" />
+    <state width="1493" height="234" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1602165132674" />
+    <state width="1493" height="234" key="GridCell.Tab.0.left" timestamp="1602165132673">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="239" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.2048.1112@0.0.1536.824" timestamp="1601070871578" />
-    <state width="2005" height="267" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.2048.1112@1920.0.2048.1112" timestamp="1601079817760" />
-    <state width="1493" height="2" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1601072614967" />
-    <state width="2005" height="267" key="GridCell.Tab.0.right" timestamp="1601079817760">
-      <screen x="1920" y="0" width="2048" height="1112" />
+    <state width="723" height="267" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.2048.1112@0.0.1536.824" timestamp="1601684364906" />
+    <state width="2005" height="384" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.2048.1112@1920.0.2048.1112" timestamp="1602157572542" />
+    <state width="1493" height="234" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1602165132673" />
+    <state width="1493" height="234" key="GridCell.Tab.0.right" timestamp="1602165132676">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="239" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.2048.1112@0.0.1536.824" timestamp="1601070871578" />
-    <state width="2005" height="267" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.2048.1112@1920.0.2048.1112" timestamp="1601079817760" />
-    <state width="1493" height="2" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1601072614967" />
+    <state width="723" height="267" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.2048.1112@0.0.1536.824" timestamp="1601684364907" />
+    <state width="2005" height="384" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.2048.1112@1920.0.2048.1112" timestamp="1602157572543" />
+    <state width="1493" height="234" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1602165132676" />
     <state width="1493" height="527" key="GridCell.Tab.1.bottom" timestamp="1601070517611">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -207,9 +296,9 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/My_Unfollowers$My_Unfollowers.coverage" NAME="My_Unfollowers Coverage Results" MODIFIED="1601068058467" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/My_Unfollowers$GithubFollowers.coverage" NAME="GithubFollowers Coverage Results" MODIFIED="1601075762437" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/My_Unfollowers$InstaFollowers.coverage" NAME="InstaFollowers Coverage Results" MODIFIED="1601079817730" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/My_Unfollowers$Flask__GithubFollowers_py_.coverage" NAME="Flask (GithubFollowers.py) Coverage Results" MODIFIED="1601068143551" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/My_Unfollowers$GithubFollowers.coverage" NAME="GithubFollowers Coverage Results" MODIFIED="1602157572453" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/github" />
+    <SUITE FILE_PATH="coverage/My_Unfollowers$Flask__GithubFollowers_py_.coverage" NAME="Flask (GithubFollowers.py) Coverage Results" MODIFIED="1601678132552" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/My_Unfollowers$main.coverage" NAME="main Coverage Results" MODIFIED="1601070888109" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>
