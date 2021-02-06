@@ -1,8 +1,6 @@
 import requests
-from pprint import pprint
 import threading
 import math
-import emoji
 import json
 
 

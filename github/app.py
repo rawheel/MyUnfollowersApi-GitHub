@@ -1,12 +1,11 @@
-import requests
-from pprint import pprint
+#import requests
 import threading
-import math
+#import math
 import json
-import Load_followers
+#import Load_followers
 from Load_followers import *
-from flask import Flask
-from flask_restful import Api, Resource,reqparse,abort
+from flask import Flask,abort
+#from flask_restful import Api, Resource,reqparse,abort
 from flask import jsonify
 from flask import request
 app = Flask(__name__)
@@ -20,12 +19,12 @@ def home():
     #(username)
     try:
         coming = compare_followers(username)
-        print(coming)
+        #print(coming)
         return jsonify(coming)
     except Exception as e:
         #return e
         #print(e)
-        abort(400,message="Max Retiries exceeded with URL, take a break man...")
+        abort(400,description="Max Retries exceeded with URL or Invalid Username! take a break man...")
 
 def load_prev_followers():
     read = open("data.txt","r")
@@ -35,7 +34,7 @@ def load_prev_followers():
 def load_recent_followers(username):
 
     load_followers = Load_followers(username)
-    print(f"total followers: {str(load_followers.total)}")
+    #print(f"total followers: {str(load_followers.total)}")
     recent_data = load_followers.get_followers()
     with open('data.txt', 'w') as outfile:
         json.dump(recent_data, outfile)
@@ -57,6 +56,7 @@ def compare_followers(username):
     try:
         read = open("data.txt","r")
         prev_data = json.load(read)
+        print(prev_data,"pppppppppppppp")
         prev_username = [i for i in prev_data]
 
         if prev_username[0]==username:
@@ -67,12 +67,17 @@ def compare_followers(username):
             prev_set = set(prev_followers[username])
             recent_set = set(recent_followers[username])
 
-            newfollowers = prev_set-recent_set
-            unfollowers = recent_set - prev_set
+            #newfollowers = prev_set-recent_set
+            #unfollowers = recent_set - prev_set
+            unfollowers = prev_set-recent_set
+            newfollowers  = recent_set - prev_set
 
             data  ={}
             data["unfollowers"] = "Congrats,No one unfollowed you"
             data["newfollowers"] = "Help a person,Get a new Follower"
+            data["totalunfollowers"]=0
+            data["totalnewfollowers"]=0
+
 
 
             if unfollowers:
@@ -82,6 +87,8 @@ def compare_followers(username):
                 #print()
 
                 data["unfollowers"] = list(unfollowers)
+                data["totalunfollowers"] = len(list(unfollowers))
+
 
                 #print(emoji.emojize("Congrats,No one unfollowed you :grinning_face_with_big_eyes:"))
             if newfollowers:
@@ -89,6 +96,7 @@ def compare_followers(username):
                 #no=0
                 #[print(f'{no+1}) {n}') for no,n in enumerate(newfollowers)]
                 data["newfollowers"] = list(newfollowers)
+                data["totalnewfollowers"] = len(list(newfollowers))
 
 
                 #print(emoji.emojize("Help a person,Get a new Follower :smiling_face_with_halo:"))
