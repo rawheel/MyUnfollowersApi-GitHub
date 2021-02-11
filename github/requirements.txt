@@ -1,3 +1,3 @@
-flask
-requests
-jsonify
+Flask==1.1.2
+requests==2.24.0
+gunicron
