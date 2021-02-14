@@ -48,6 +48,7 @@ def compare_followers(username):
             data["totalunfollowers"]=0
             data["totalnewfollowers"]=0
             data["totalfollowers"] = recent_followers["totalfollowers"]
+            data["avatar_url"] = recent_followers["avatar_url"]
 
             if unfollowers:
                 data["unfollowers"] = list(unfollowers)

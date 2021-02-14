@@ -18,9 +18,9 @@ class Load_followers:
         self.username = username
         self.apis = Api_services()
 
-        info = self.apis.githubApi(username) 
-        self.total_followers = requests.get(info).json()
-        self.total = int(self.total_followers["followers"])
+        self.info = self.apis.githubApi(username) 
+        self.response = requests.get(self.info).json()
+        self.total = int(self.response["followers"])
         self.length = math.ceil(self.total/100)
         self.followers=[]
 
@@ -38,6 +38,7 @@ class Load_followers:
             threads.append(t)
         for thread in threads:
             thread.join()
-        info_dict={self.username:self.followers,"totalfollowers":self.total}
+        
+        info_dict={self.username:self.followers,"totalfollowers":self.total,"avatar_url":self.response['avatar_url']}
         return info_dict
 
