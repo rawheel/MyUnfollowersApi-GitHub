@@ -11,6 +11,7 @@ def github():
     username = str(request.args['username'])
     try:
         result = compare_followers(username)
+        result.headers.add("Access-Control-Allow-Origin", "*")
         return jsonify(result)
     except Exception as e:
         print(e)
