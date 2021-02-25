@@ -2,7 +2,7 @@ import requests
 import threading
 import math
 import json
-
+import instaloader
 
 class Api_services:
     
@@ -42,3 +42,28 @@ class Load_followers:
         info_dict={self.username:self.followers,"totalfollowers":self.total,"avatar_url":self.response['avatar_url']}
         return info_dict
 
+class InstaFollowers:
+	def __init__(self,username,password):
+
+		self.username = username
+		self.password = password
+
+	def get_follower(self):
+		try:
+			L = instaloader.Instaloader()
+			L.login(self.username,self.password)
+			try:
+				profile = instaloader.Profile.from_username(L.context,self.username)	
+				
+				followers= {'username':self.username,'followers':[f.username for f in profile.get_followers()],'totalfollowers':profile.followers}
+				return followers
+
+			except Exception as e:
+				return 2
+		except Exception as e:
+			return 0
+			
+			
+
+#ob1 = InstaFollowers("username","pass")
+#print(ob1.get_follower())
