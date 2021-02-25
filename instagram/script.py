@@ -1,5 +1,3 @@
-
-import threading
 import instaloader
 
 class InstaFollowers:
@@ -13,7 +11,6 @@ class InstaFollowers:
 			L = instaloader.Instaloader()
 			L.login(self.username,self.password)
 			try:
-				print('\n\nGetting followers from',self.username)
 				profile = instaloader.Profile.from_username(L.context,self.username)	
 				
 				followers= {'username':self.username,'followers':[f.username for f in profile.get_followers()],'totalfollowers':profile.followers}
