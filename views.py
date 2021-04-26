@@ -16,19 +16,21 @@ def load_recent_followers(username):
     db.updateData(username,str(recent_data[username]))
 
     return recent_data
+test_flags = {'username_test':0,'saving_user_test':0,'unfollowers_test':0,'newfollowers_test':0}
 
 def save_data_for_first_time(username):
     
     load_followers = Load_followers(username)
     data = load_followers.get_followers()
     username=[key for key in data][0]
+    test_flags['saving_user_test'] = 1
 
     db = myunfollowersdb()
     db.insertUser(username)
     db.insertData(db.cursor.lastrowid,str(data[username]))
 
 def compare_followers(username,prev_followers,recent_followers):
-    test_flags = {'username_test':0,'unfollowers_test':0,'newfollowers_test':0}
+    #test_flags = {'username_test':0,'unfollowers_test':0,'newfollowers_test':0}
     try:
         db = myunfollowersdb()
         if db.checkUsername(username):
@@ -70,12 +72,13 @@ def compare_followers(username,prev_followers,recent_followers):
         else:
             save_data_for_first_time(username)
             test_flags['username_test'] = 1
-            print("else called")
             return test_flags
             #return {"message": "Your username & Followers have been added for later use!"}
 
 
     except Exception as e:
         save_data_for_first_time(username)
-        print(e,"error called")
+        test_flags['username_test'] = 1
+        print("else called")
+        return test_flags
         return {"message": "Your username & Followers have been added for later use!"}
