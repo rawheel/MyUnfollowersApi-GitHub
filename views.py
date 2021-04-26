@@ -28,6 +28,7 @@ def save_data_for_first_time(username):
     db.insertData(db.cursor.lastrowid,str(data[username]))
 
 def compare_followers(username):
+    test_flags = {'username_test':0,'unfollowers_test':0,'newfollowers_test':0}
     try:
         db = myunfollowersdb()
         if db.checkUsername(username):
