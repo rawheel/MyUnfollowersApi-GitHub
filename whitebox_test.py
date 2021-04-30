@@ -8,7 +8,7 @@ prev_followers = ["usman","raheel","shahzaib"]
 recent_followers = ["usman","raheel","shahzaib"]
 object = compare_followers(username,prev_followers,recent_followers)
 print("If username is not registered Testcase and testing the loop also:")
-if object['username_test'] and object['username_test']:
+if object['username_test'] and object['saving_user_test']:
     print( ':check_mark_button: Passed! username test case and save user loop.')
 elif object['username_test']==0 or object['saving_user_test']==0:
     print(emoji.emojize(':check_mark_button: Passed! username test case and save user loop.'))
