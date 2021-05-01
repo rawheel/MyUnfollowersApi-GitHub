@@ -7,3 +7,8 @@ The API helps user figure out who followed, unfollowed him/her. At the Backend I
 ## White Box Tests:
 Go to whitebox_test.py to check the test cases.
 <img src ="https://github.com/rawheel/MyUnfollowersApi-GitHub/blob/testing/passed_tests.jpg" alt="MyUnfollowersapi">
+
+## Black Box Tests:
+Go to blackbox_test.py to check the test cases.
+<img src ="https://github.com/rawheel/MyUnfollowersApi-GitHub/blob/testing/blackbox_passed_tests.jpg" alt="MyUnfollowersapi">
+
