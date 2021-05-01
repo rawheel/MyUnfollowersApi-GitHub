@@ -16,10 +16,12 @@ class Api_services:
 class Load_followers:
     def __init__(self,username):
         self.username = username
+
         self.apis = Api_services()
 
         self.info = self.apis.githubApi(username) 
         self.response = requests.get(self.info).json()
+       
         self.total = int(self.response["followers"])
         self.length = math.ceil(self.total/100)
         self.followers=[]
